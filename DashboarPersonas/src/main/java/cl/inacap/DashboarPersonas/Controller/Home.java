@@ -45,20 +45,8 @@ public class Home extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Date fechaNacimiento = formatoFecha("1999-12-21");
 		
-		Persona p = new Persona();
-		p.setApellidosPersona("Munoz");
-		p.setDireccion("hola calle");
-		p.setFechaNacimiento(fechaNacimiento);
-		p.setFotoPersona("hhtt...");
-		p.setIdCiudad(32);
-		p.setIdPersona(0);
-		p.setNombresPersona("Oscar");
-		p.setRut("999999-9");
-		ps.agregarPersona(p);
-		
-		//request.getRequestDispatcher("Site/index.jsp").forward(request, response);
+		request.getRequestDispatcher("Site/index.jsp").forward(request, response);
 		
 		
 	}
@@ -67,8 +55,22 @@ public class Home extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
+		
+		
+		Date fechaNacimiento = formatoFecha(request.getParameter("FechaNacimiento").toString());
+		
+		Persona p = new Persona();
+		p.setApellidosPersona(request.getParameter("Apellido").toString());
+		p.setDireccion(request.getParameter("Direccion").toString());
+		p.setFechaNacimiento(fechaNacimiento);
+		p.setFotoPersona(request.getParameter("Foto").toString());
+		p.setIdCiudad(Integer.parseInt(request.getParameter("IdCiudad")));
+		p.setNombresPersona(request.getParameter("Nombre").toString());
+		p.setRut(request.getParameter("Rut").toString());
+		ps.agregarPersona(p);
+		
+		
 	}
 
 }

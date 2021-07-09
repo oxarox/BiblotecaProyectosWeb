@@ -3,7 +3,6 @@
 	<name>DashboardEJB</name>
 	<comment></comment>
 	<projects>
-		<project>DashboarPersonas</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

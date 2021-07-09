@@ -29,7 +29,7 @@ public class Persona implements Serializable {
 	@Column(name="NombresPersona")
 	private String NombresPersona;
 	
-	
+	@Column(name="Apellido_persona")
 	private String ApellidosPersona;
 	
 	

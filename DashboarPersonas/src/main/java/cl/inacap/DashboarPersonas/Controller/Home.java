@@ -2,6 +2,7 @@ package cl.inacap.DashboarPersonas.Controller;
 
 import javax.inject.Inject;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -56,6 +57,7 @@ public class Home extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		PrintWriter out=response.getWriter();
 		
 		
 		Date fechaNacimiento = formatoFecha(request.getParameter("FechaNacimiento").toString());
@@ -69,6 +71,11 @@ public class Home extends HttpServlet {
 		p.setNombresPersona(request.getParameter("Nombre").toString());
 		p.setRut(request.getParameter("Rut").toString());
 		ps.agregarPersona(p);
+		
+		
+		out.println("Se realiza la transaccion de guardado de datos "+p.toString());
+		
+		//response.sendRedirect("Home.do"); //Es recomendable posterior al almacenar info //Realiza una redireccion
 		
 		
 	}

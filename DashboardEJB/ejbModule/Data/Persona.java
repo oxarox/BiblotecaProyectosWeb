@@ -29,7 +29,7 @@ public class Persona implements Serializable {
 	@Column(name="NombresPersona")
 	private String NombresPersona;
 	
-	@Column(name="Apellido_persona")
+	@Column(name="ApellidosPersona")
 	private String ApellidosPersona;
 	
 	
@@ -78,6 +78,7 @@ public class Persona implements Serializable {
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		FechaNacimiento = fechaNacimiento;
 	}
+	
 	public String getFotoPersona() {
 		return FotoPersona;
 	}
@@ -97,6 +98,15 @@ public class Persona implements Serializable {
 		IdCiudad = idCiudad;
 	}
 	
+	
+	
+	
+	@Override
+	public String toString() {
+		return "Persona [IdPersona=" + IdPersona + ", NombresPersona=" + NombresPersona + ", ApellidosPersona="
+				+ ApellidosPersona + ", Rut=" + Rut + ", FechaNacimiento=" + FechaNacimiento + ", FotoPersona="
+				+ FotoPersona + ", Direccion=" + Direccion + ", IdCiudad=" + IdCiudad + "]";
+	}
 	
 	
 }
